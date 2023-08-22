@@ -1,0 +1,127 @@
+package com.douglas.centralsupport.domain;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+import com.douglas.centralsupport.domain.enums.Prioridade;
+import com.douglas.centralsupport.domain.enums.Status;
+
+public class Chamado {
+	
+	private Integer id;
+	private LocalDate dataAbertura;
+	private LocalDate dataFechamento = LocalDate.now();
+	private Prioridade prioridade;
+	private Status status;
+	private String título;
+	private String observaçoes;
+	
+	private Tecnico tecnico;
+	private Cliente cliente;
+	
+	public Chamado() {
+		super();
+	}
+
+	public Chamado(Integer id, Prioridade prioridade, Status status, String título, String observaçoes, Tecnico tecnico,
+			Cliente cliente) {
+		super();
+		this.id = id;
+		this.prioridade = prioridade;
+		this.status = status;
+		this.título = título;
+		this.observaçoes = observaçoes;
+		this.tecnico = tecnico;
+		this.cliente = cliente;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public LocalDate getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(LocalDate dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
+	public LocalDate getDataFechamento() {
+		return dataFechamento;
+	}
+
+	public void setDataFechamento(LocalDate dataFechamento) {
+		this.dataFechamento = dataFechamento;
+	}
+
+	public Prioridade getPrioridade() {
+		return prioridade;
+	}
+
+	public void setPrioridade(Prioridade prioridade) {
+		this.prioridade = prioridade;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public String getTítulo() {
+		return título;
+	}
+
+	public void setTítulo(String título) {
+		this.título = título;
+	}
+
+	public String getObservaçoes() {
+		return observaçoes;
+	}
+
+	public void setObservaçoes(String observaçoes) {
+		this.observaçoes = observaçoes;
+	}
+
+	public Tecnico getTecnico() {
+		return tecnico;
+	}
+
+	public void setTecnico(Tecnico tecnico) {
+		this.tecnico = tecnico;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Chamado other = (Chamado) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+}
