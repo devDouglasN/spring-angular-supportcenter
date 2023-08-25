@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import org.hibernate.annotations.ManyToAny;
+
 
 import com.douglas.centralsupport.domain.enums.Prioridade;
 import com.douglas.centralsupport.domain.enums.Status;
