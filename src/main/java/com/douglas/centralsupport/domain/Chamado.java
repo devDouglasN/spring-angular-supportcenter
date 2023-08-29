@@ -27,10 +27,11 @@ public class Chamado implements Serializable {
 	private Integer id;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataAbertura;
+	private LocalDate dataAbertura = LocalDate.now();
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataFechamento = LocalDate.now();
+	private LocalDate dataFechamento;
+	
 	private Prioridade prioridade;
 	private Status status;
 	private String título;
@@ -41,7 +42,7 @@ public class Chamado implements Serializable {
 	private Tecnico tecnico;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente")
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 	public Chamado() {

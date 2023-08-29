@@ -1,4 +1,4 @@
-package com.douglas.centralsupport.services;
+ package com.douglas.centralsupport.services;
 
 import java.util.Arrays;
 
@@ -27,7 +27,7 @@ public class DBService {
 	@Autowired
 	private ChamadoRepository chamadoRepository;
 	
-	public void instanciDB() {
+	public void instanciaDB() {
 		Tecnico tec1 = new Tecnico(null, "Douglas do Nascimento", "079.822.910-15", "douglasN@mail.com", "123");
 		tec1.addPerfil(Perfil.ADMIN);
 		
