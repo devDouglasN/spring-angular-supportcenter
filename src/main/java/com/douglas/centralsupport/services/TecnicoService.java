@@ -14,6 +14,8 @@ import com.douglas.centralsupport.repositories.TecnicoRepository;
 import com.douglas.centralsupport.services.exceptions.DataIntegrityViolationException;
 import com.douglas.centralsupport.services.exceptions.ObjectnotFoundException;
 
+import jakarta.validation.Valid;
+
 @Service
 public class TecnicoService {
 	
@@ -39,6 +41,14 @@ public class TecnicoService {
 		
 		return repository.save(newOBJ);
 	}
+	
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		Tecnico oldObj = findById(id); 
+		validaPorCpfEEmail(objDTO);
+		oldObj = new Tecnico(objDTO);
+		return repository.save(oldObj);
+	}
 
 	private void validaPorCpfEEmail(TecnicoDTO objDTO) {
 		
@@ -51,4 +61,5 @@ public class TecnicoService {
 			throw new DataIntegrityViolationException("Email já cadastrado no sistema!");
 		}
 	}
+
 }
