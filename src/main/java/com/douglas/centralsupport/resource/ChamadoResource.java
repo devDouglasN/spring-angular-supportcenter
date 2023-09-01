@@ -1,5 +1,8 @@
 package com.douglas.centralsupport.resource;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,4 +26,11 @@ public class ChamadoResource {
 		Chamado obj = service.findById(id);
 		return ResponseEntity.ok().body(new ChamadoDTO(obj));
 	}
+	
+	public ResponseEntity<List<ChamadoDTO>> findAll() {
+		List<Chamado> list = service.findById();
+		List<ChamadoDTO> listDTO = list.stream().map(obj -> new ChamadoDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
 }
+ 
